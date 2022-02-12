@@ -1,122 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Controle financeiro</title>
-    <link rel="stylesheet" href="css/style.css"
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <header>
-      <div class="header">
-        <div class="logo"><img src="/assets/Img/logo.svg" alt="logo" /></div>
-        <h1>Controle financeiro</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controle financeiro</title>
+  <link rel="stylesheet" href="css/style.css" <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+</head>
 
-        <div class="menu">
-          <div class="icon">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+<body >
+  <header>
+    <div class="header">
+      <div class="logo"><img src="/assets/Img/logo.svg" alt="logo" /></div>
+      <h1>Controle financeiro</h1>
 
-          <div class="menu-content">
-            <div class="close">X</div>
+      <div class="menu">
+        <div class="icon">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
 
-            <ul>
-              <li>
-                <a href="#">Cadastro de transações</a>
-              </li>
-              <div class="line">|</div>
-              <li>
-                <a href="#">Limpar dados</a>
-              </li>
-            </ul>
-          </div>
+        <div class="menu-content">
+          <div class="close">X</div>
+
+          <ul>
+            <li>
+              <a href="#">Cadastro de transações</a>
+            </li>
+            <div class="line">|</div>
+            <li>
+              <a id="clear" href onclick="deletarTudo()">Limpar dados</a>
+            </li>
+          </ul>
+
+
+          
         </div>
       </div>
-    </header>
+    </div>
+  </header>
+  
 
-    <div class="content">
-      <div class="transaction">
-        <h2>Nova transação</h2>
+  <div class="content">
+    <div class="transaction">
+      <h2>Nova transação</h2>
+      
+      <form onsubmit="submitForm(event);">
         <div class="table">
           <div class="type">
             <label for="cars">Tipo de transação</label>
-            <select name="transacao" id="transacao">
-              <option value="Nenhuma transação cadastrada">
-                Nenhuma transação cadastrada
-              </option>
-              <option value="Compra">Compra</option>
-              <option value="Venda">Venda</option>
+            <select name="type" id="transacao">
+              <option value="">Tipo</option>
+              <option value="-">Compra</option>
+              <option value="+">Venda</option>
             </select>
           </div>
           <div class="name">
-            <p>Nome da mercadoria</p>
-            <input type="text" />
+            <label for="name"><p>Nome da mercadoria</p></label>
+            <input name="name" type="text" required />
           </div>
           <div class="value">
-            <p>Valor</p>
-            <input type="text" placeholder="R$:0,00" />
+            <label for="value"><p>Valor</p></label>
+            <input class="form-control" id="moeda" name="value" type="text" placeholder="R$:0,00" onkeyup="formataValor(this)" onfocus="this.value" required
+              type="text" />
           </div>
         </div>
         <div class="btn">
-          <button>Adicionar transação</button>
+          <button type="submit" value="save">Adicionar transação</button>
         </div>
-      </div>
-
-      <div class="divider-content">
-        <div class="divider"></div>
-      </div>
-
-      <div class="extract">
-        <table>
-          <h2>Extrato de transações</h2>
-
-          <tr>
-            <th></th>
-            <th>Mercadoria</th>
-            <th>Valor</th>
-          </tr>
-
-          <tr>
-            <td>+</td>
-            <td>Lorem ipsum dolor sit amet consectur</td>
-            <td class="linha-dois">R$ 12.999,99</td>
-          </tr>
-
-          <tr>
-            <td>-</td>
-            <td>Quis nostrud exercitation</td>
-            <td class="linha-dois">R$ 99,99</td>
-          </tr>
-          <tr>
-            <td>+</td>
-            <td>Lorem ipsum</td>
-            <td class="linha-dois">R$ 9,99</td>
-          </tr>
-
-          <tr>
-            <th></th>
-            <th>Total</th>
-            <th class="lucro-valor">
-              R$ 12.909,90 <br />
-              <p>[LUCRO]</p>
-            </th>
-          </tr>
-        </table>
-      </div>
+      </form>
     </div>
 
-    <footer>
-      <div class="footer"></div>
-    </footer>
-  </body>
+
+
+
+
+
+    <div class="divider-content">
+      <div class="divider"></div>
+    </div>
+
+    <div class="extract">
+      <table class="extract-list">
+        <h2>Extrato de transações</h2>
+
+        <tr>
+          <th></th>
+          <th class="start">Mercadoria</th>
+       
+          <th class="end">Valor</th>
+        </tr>
+        <tr>
+          <td colspan="3" class="td-extract"></td>
+        </tr>
+
+       
+      </table>
+      <div id="lucroPrejuizo">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer"></div>
+  </footer>
+</body>
+<script src="/script.js"></script>
+
 </html>
