@@ -33,7 +33,7 @@
             </li>
             <div class="line">|</div>
             <li>
-              <a id="clear" href onclick="deletarTudo()">Limpar dados</a>
+              <a id="clear" href="#" onclick="deleteAll(event)">Limpar dados</a>
             </li>
           </ul>
 
@@ -53,7 +53,7 @@
         <div class="table">
           <div class="type">
             <label for="cars">Tipo de transação</label>
-            <select name="type" id="transacao">
+            <select required name="type" id="transacao">
               <option value="">Tipo</option>
               <option value="-">Compra</option>
               <option value="+">Venda</option>
@@ -65,7 +65,7 @@
           </div>
           <div class="value">
             <label for="value"><p>Valor</p></label>
-            <input class="form-control" id="moeda" name="value" type="text" placeholder="R$:0,00" onkeyup="formataValor(this)" onfocus="this.value" required
+            <input class="form-control" id="currency" name="value" type="text" placeholder="R$ 0,00" onkeyup="formatValue(this)" required
               type="text" />
           </div>
         </div>
@@ -86,12 +86,12 @@
 
     <div class="extract">
       <table class="extract-list">
-        <h2>Extrato de transações</h2>
+        <span class="title">Extrato de transações</span>
 
         <tr>
           <th></th>
           <th class="start">Mercadoria</th>
-       
+      
           <th class="end">Valor</th>
         </tr>
         <tr>
@@ -100,7 +100,7 @@
 
        
       </table>
-      <div id="lucroPrejuizo">
+      <div id="profitPrejudice">
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@
   <footer>
     <div class="footer"></div>
   </footer>
+  <script src="/script.js"></script>
 </body>
-<script src="/script.js"></script>
 
 </html>

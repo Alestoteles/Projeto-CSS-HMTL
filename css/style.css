@@ -200,7 +200,7 @@ button {
 
 
 
-.extract h2 {
+.title {
 
 
   font-size: 18px;
@@ -233,9 +233,6 @@ table tr td {
 }
 
 
-table tr:nth-child(4) {
-  border-bottom: double #979797;
-}
 
 table {
 
@@ -285,17 +282,17 @@ tr {
 
 }
 
-.dinamic-td {
+.dynamic-td {
    text-align: end;
 }
 
-.dinamic-td1 { 
+.dynamic-td1 { 
 width: 5px;
 }
 
 
 
-#lucroPrejuizo { 
+#profitPrejudice { 
   text-align: end;
   padding-right: 10px;
 
